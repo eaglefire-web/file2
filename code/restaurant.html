@@ -1,1 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bernabas - Artisanal Dining Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f7f2;
+            color: #333;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .special-badge {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .testimonial-card:hover {
+            transform: scale(1.02);
+        }
+        
+        .reservation-form input:focus, 
+        .reservation-form select:focus,
+        .reservation-form textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px #8b5a2b;
+        }
+        
+        .gold-text {
+            color: #8b5a2b;
+        }
+        
+        .gold-bg {
+            background-color: #8b5a2b;
+        }
+        
+        .gold-border {
+            border-color: #8b5a2b;
+        }
+        
+        .gold-hover:hover {
+            background-color: #6d4622;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-utensils text-2xl gold-text"></i>
+                <span class="text-xl font-bold heading-font gold-text">Bernabas</span>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#home" class="hover:gold-text transition">Home</a>
+                <a href="#about" class="hover:gold-text transition">About</a>
+                <a href="#menu" class="hover:gold-text transition">Menu</a>
+                <a href="#gallery" class="hover:gold-text transition">Gallery</a>
+                <a href="#reservations" class="hover:gold-text transition">Reservations</a>
+                <a href="#contact" class="hover:gold-text transition">Contact</a>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button class="md:hidden" id="mobile-menu-btn">
+                    <i class="fas fa-bars text-xl gold-text"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-4 py-2 shadow-lg">
+            <a href="#home" class="block py-2 hover:gold-text transition">Home</a>
+            <a href="#about" class="block py-2 hover:gold-text transition">About</a>
+            <a href="#menu" class="block py-2 hover:gold-text transition">Menu</a>
+            <a href="#gallery" class="block py-2 hover:gold-text transition">Gallery</a>
+            <a href="#reservations" class="block py-2 hover:gold-text transition">Reservations</a>
+            <a href="#contact" class="block py-2 hover:gold-text transition">Contact</a>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="home" class="hero text-white py-20 md:py-32">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4 heading-font">Bernabas</h1>
+            <p class="text-xl md:text-2xl mb-8">Artisanal Dining Experience</p>
+            <div class="max-w-md mx-auto">
+                <a href="#reservations" class="gold-bg text-white py-3 px-8 rounded-full font-bold hover:gold-hover transition inline-block">
+                    Reserve a Table
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
+                         alt="Bernabas Restaurant" class="rounded-xl shadow-lg w-full">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl font-bold mb-6 heading-font gold-text">Our Story</h2>
+                    <p class="text-gray-600 mb-4">Founded in 2010, Bernabas began as a small bistro with a passion for locally-sourced ingredients and artisanal cooking techniques. What started as a humble neighborhood spot has grown into one of the city's most celebrated dining destinations.</p>
+                    <p class="text-gray-600 mb-6">Our philosophy is simple: exceptional ingredients treated with respect, prepared with skill, and served with warmth. Every dish tells a story of tradition meeting innovation.</p>
+                    <div class="flex space-x-4">
+                        <div class="bg-gray-50 p-4 rounded-lg text-center border gold-border">
+                            <i class="fas fa-leaf text-2xl gold-text mb-2"></i>
+                            <p class="font-bold">Farm to Table</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg text-center border gold-border">
+                            <i class="fas fa-award text-2xl gold-text mb-2"></i>
+                            <p class="font-bold">Award Winning</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg text-center border gold-border">
+                            <i class="fas fa-wine-glass-alt text-2xl gold-text mb-2"></i>
+                            <p class="font-bold">Curated Wines</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offers -->
+    <section class="py-12 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 heading-font gold-text">Seasonal Specials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-6 text-center border-2 gold-border shadow-sm">
+                    <div class="bg-gray-50 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4 border gold-border">
+                        <i class="fas fa-fish text-3xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Ocean's Bounty</h3>
+                    <p class="text-gray-600 mb-4">Fresh catch of the day with seasonal vegetables and lemon beurre blanc</p>
+                    <p class="text-2xl font-bold gold-text">$32</p>
+                    <p class="text-sm text-gray-500 mt-2">Available through September</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center border-2 gold-border shadow-sm special-badge">
+                    <div class="bg-gray-50 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4 border gold-border">
+                        <i class="fas fa-seedling text-3xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Summer Harvest</h3>
+                    <p class="text-gray-600 mb-4">Heirloom tomato salad with burrata, basil oil, and aged balsamic</p>
+                    <p class="text-2xl font-bold gold-text">$18</p>
+                    <p class="text-sm text-gray-500 mt-2">Chef's recommendation</p>
+                </div>
+                
+                <div class="bg-white rounded-xl p-6 text-center border-2 gold-border shadow-sm">
+                    <div class="bg-gray-50 w-20 h-20 mx-auto rounded-full flex items-center justify-center mb-4 border gold-border">
+                        <i class="fas fa-ice-cream text-3xl gold-text"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Berry Pavlova</h3>
+                    <p class="text-gray-600 mb-4">Crisp meringue with seasonal berries and vanilla cream</p>
+                    <p class="text-2xl font-bold gold-text">$14</p>
+                    <p class="text-sm text-gray-500 mt-2">Available for dessert</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 heading-font gold-text">Our Menu</h2>
+            
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-md shadow-sm">
+                    <button class="px-4 py-2 text-sm font-medium rounded-l-lg gold-bg text-white focus:z-10">
+                        Starters
+                    </button>
+                    <button class="px-4 py-2 text-sm font-medium bg-white text-gray-700 hover:bg-gray-100 focus:z-10 border-t border-b border-gray-300">
+                        Mains
+                    </button>
+                    <button class="px-4 py-2 text-sm font-medium bg-white text-gray-700 hover:bg-gray-100 focus:z-10 border-t border-b border-r border-gray-300 rounded-r-lg">
+                        Desserts
+                    </button>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Starters -->
+                <div class="menu-item bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold heading-font">Foie Gras Terrine</h3>
+                            <span class="text-lg font-bold gold-text">$24</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">With fig compote, toasted brioche, and sea salt</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-pepper-hot gold-text mr-1"></i>
+                            <span>Mild spice</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold heading-font">Scallop Crudo</h3>
+                            <span class="text-lg font-bold gold-text">$22</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">With yuzu kosho, avocado, and crispy shallots</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-leaf gold-text mr-1"></i>
+                            <span>Contains raw seafood</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mains -->
+                <div class="menu-item bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold heading-font">Duck Confit</h3>
+                            <span class="text-lg font-bold gold-text">$36</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">With cherry reduction, roasted fingerlings, and wilted greens</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-star gold-text mr-1"></i>
+                            <span>Chef's signature</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold heading-font">Wild Mushroom Risotto</h3>
+                            <span class="text-lg font-bold gold-text">$28</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">With truffle oil, parmesan, and microgreens</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-leaf gold-text mr-1"></i>
+                            <span>Vegetarian</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Desserts -->
+                <div class="menu-item bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold heading-font">Chocolate Soufflé</h3>
+                            <span class="text-lg font-bold gold-text">$14</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">With vanilla bean ice cream and cocoa nibs</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-clock gold-text mr-1"></i>
+                            <span>20 minute preparation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="menu-item bg-gray-50 rounded-xl overflow-hidden shadow-md transition duration-300">
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-bold heading-font">Cheese Selection</h3>
+                            <span class="text-lg font-bold gold-text">$18</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">Artisanal cheeses with honeycomb, nuts, and fruit bread</p>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <i class="fas fa-wine-glass-alt gold-text mr-1"></i>
+                            <span>Wine pairing available</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="#" class="gold-bg text-white py-3 px-8 rounded-full font-bold hover:gold-hover transition inline-block">
+                    View Full Menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 heading-font gold-text">Gallery</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80" 
+                         alt="Dining Area" class="w-full h-48 md:h-64 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" 
+                         alt="Bar Area" class="w-full h-48 md:h-64 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+                         alt="Plated Dish" class="w-full h-48 md:h-64 object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="overflow-hidden rounded-lg shadow-md">
+                    <img src="https://images.unsplash.com/photo-1559847844-5315695dadae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2098&q=80" 
+                         alt="Chef Preparing Food" class="w-full h-48 md:h-64 object-cover hover:scale-105 transition duration-300">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 heading-font gold-text">What Our Guests Say</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Michael R.</h4>
+                            <div class="flex space-x-1 text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The duck confit was perfection - crispy skin, tender meat, and that cherry reduction was divine. Service was impeccable without being intrusive."</p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">Sarah L.</h4>
+                            <div class="flex space-x-1 text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"As a vegetarian, I appreciated the creative options beyond just pasta. The mushroom risotto was rich and flavorful with perfect texture."</p>
+                </div>
+                
+                <div class="testimonial-card bg-gray-50 p-6 rounded-xl shadow-md transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center mr-4">
+                            <i class="fas fa-user text-gray-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold">David K.</h4>
+                            <div class="flex space-x-1 text-yellow-400 text-sm">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"The wine pairing recommendation was spot on. We did the tasting menu and every course was a revelation. Worth every penny for a special occasion."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservations -->
+    <section id="reservations" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 heading-font gold-text">Make a Reservation</h2>
+            
+            <div class="max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-md">
+                <form class="reservation-form">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block text-gray-700 mb-2">Full Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-gray-700 mb-2">Phone</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="guests" class="block text-gray-700 mb-2">Number of Guests</label>
+                            <select id="guests" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                                <option>1 person</option>
+                                <option>2 people</option>
+                                <option>3 people</option>
+                                <option>4 people</option>
+                                <option>5 people</option>
+                                <option>6+ people</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="date" class="block text-gray-700 mb-2">Date</label>
+                            <input type="date" id="date" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                        </div>
+                        <div>
+                            <label for="time" class="block text-gray-700 mb-2">Time</label>
+                            <select id="time" class="w-full px-4 py-2 border rounded-lg focus:outline-none">
+                                <option>5:00 PM</option>
+                                <option>5:30 PM</option>
+                                <option>6:00 PM</option>
+                                <option>6:30 PM</option>
+                                <option>7:00 PM</option>
+                                <option>7:30 PM</option>
+                                <option>8:00 PM</option>
+                                <option>8:30 PM</option>
+                                <option>9:00 PM</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <label for="notes" class="block text-gray-700 mb-2">Special Requests</label>
+                        <textarea id="notes" rows="3" class="w-full px-4 py-2 border rounded-lg focus:outline-none"></textarea>
+                    </div>
+                    <div class="mt-8 text-center">
+                        <button type="submit" class="gold-bg text-white py-3 px-12 rounded-full font-bold hover:gold-hover transition">
+                            Book Table
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 heading-font gold-text">Contact Us</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <h3 class="text-xl font-bold mb-6 heading-font gold-text">Visit Us</h3>
+                        
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt gold-text mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-bold">Address</p>
+                                    <p class="text-gray-600">123 Gourmet Lane<br>Food District, FD 10001</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-phone-alt gold-text mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-bold">Phone</p>
+                                    <p class="text-gray-600">(555) 123-4567</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope gold-text mt-1 mr-3"></i>
+                                <div>
+                                    <p class="font-bold">Email</p>
+                                    <p class="text-gray-600">reservations@bernabas.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-bold mt-8 mb-4 heading-font gold-text">Hours</h3>
+                        <div class="space-y-2">
+                            <div class="flex justify-between">
+                                <span>Monday - Thursday</span>
+                                <span>5:00 PM - 10:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Friday - Saturday</span>
+                                <span>5:00 PM - 11:00 PM</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Sunday</span>
+                                <span>5:00 PM - 9:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm h-full">
+                        <h3 class="text-xl font-bold mb-6 heading-font gold-text">Get Directions</h3>
+                        <div class="overflow-hidden rounded-lg shadow-md h-96">
+                            <!-- Embedded Google Map -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3022.215076360008!2d-73.9878449241644!3d40.74844097138996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0xd134e199a405a163!2sEmpire%20State%20Building!5e0!3m2!1sen!2sus!4v1689876421707!5m2!1sen!2sus" 
+                                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 gold-bg text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4 heading-font">Join Our Newsletter</h2>
+            <p class="max-w-2xl mx-auto mb-8">Stay updated with our seasonal menus, special events, and exclusive offers.</p>
+            
+            <div class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Your email address" class="flex-grow px-4 py-3 rounded-l-lg focus:outline-none text-gray-800">
+                <button class="bg-gray-900 text-white px-6 rounded-r-lg font-bold hover:bg-gray-800 transition">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fas fa-utensils text-2xl gold-text"></i>
+                        <span class="text-xl font-bold heading-font">Bernabas</span>
+                    </div>
+                    <p class="text-gray-400">Artisanal dining with a focus on seasonal ingredients and impeccable service.</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 heading-font">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="#menu" class="text-gray-400 hover:text-white transition">Menu</a></li>
+                        <li><a href="#gallery" class="text-gray-400 hover:text-white transition">Gallery</a></li>
+                        <li><a href="#reservations" class="text-gray-400 hover:text-white transition">Reservations</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 heading-font">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 gold-text"></i>
+                            <span>123 Gourmet Lane, FD 10001</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 gold-text"></i>
+                            <span>(555) 123-4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 gold-text"></i>
+                            <span>hello@bernabas.com</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-4 heading-font">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:gold-bg transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:gold-bg transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-white hover:gold-bg transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                    
+                    <h4 class="text-lg font-bold mt-6 mb-4 heading-font">Awards</h4>
+                    <div class="flex space-x-2">
+                        <img src="https://via.placeholder.com/60" alt="Award 1" class="w-12 h-12 object-cover rounded">
+                        <img src="https://via.placeholder.com/60" alt="Award 2" class="w-12 h-12 object-cover rounded">
+                        <img src="https://via.placeholder.com/60" alt="Award 3" class="w-12 h-12 object-cover rounded">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Bernabas Restaurant. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Reservation Confirmation Modal -->
+    <div id="reservation-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center">
+        <div class="bg-white rounded-xl p-8 max-w-md w-full mx-4">
+            <div class="text-center">
+                <i class="fas fa-check-circle text-5xl gold-text mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2 heading-font">Reservation Confirmed!</h3>
+                <p class="text-gray-600 mb-6">We've sent a confirmation to your email. We look forward to serving you.</p>
+                <button id="close-reservation-modal" class="gold-bg text-white py-2 px-8 rounded-full font-bold hover:gold-hover transition">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Form submission
+        const reservationForm = document.querySelector('.reservation-form');
+        const reservationModal = document.getElementById('reservation-modal');
+        const closeReservationModal = document.getElementById('close-reservation-modal');
+        
+        reservationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Show confirmation modal
+            reservationModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            
+            // Reset form
+            reservationForm.reset();
+        });
+        
+        closeReservationModal.addEventListener('click', () => {
+            reservationModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Close modal when clicking outside
+        reservationModal.addEventListener('click', (e) => {
+            if (e.target === reservationModal) {
+                reservationModal.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }
+        });
+        
+        // Set minimum date for reservations (today)
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').min = today;
+    </script>
+</body>
+</html>
